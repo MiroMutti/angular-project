@@ -1,0 +1,44 @@
+<form [formGroup]="form" (submit)="register()" fxLayout="column" fx fxLayoutAlign="center center" fxLayoutGap="15px">
+  <h2>Register form</h2>
+  <mat-form-field>
+    <input matInput formControlName="username" type="text" placeholder="enter your username" fxLayout="column"
+      fxLayoutAlign="center center" />
+    <mat-error *ngIf="f.username.errors?.required">
+      This field is required.
+    </mat-error>
+    <mat-error *ngIf="f.username.errors?.minlength">
+      Username must be at least {{f.username.errors.minlength.requiredLength}} chars!
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="email" type="email" placeholder="enter your e-mail" fxLayout="column"
+      fxLayoutAlign="center center" />
+      <mat-error *ngIf="f.email.errors?.required">
+          This field is required.
+        </mat-error>
+        <mat-error *ngIf="f.email.errors?.pattern">
+            Invalid e-mail format!
+          </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="password" type="password" placeholder="enter your password" fxLayout="column"
+      fxLayoutAlign="center center" />
+    <mat-error *ngIf="f.password.errors?.required">
+      This field is required.
+    </mat-error>
+    <mat-error *ngIf="f.password.errors?.minlength">
+      Password must be at least {{f.password.errors.minlength.requiredLength}} chars!
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput formControlName="confirmPassword" type="password" placeholder="confirm your password" fxLayout="column"
+        fxLayoutAlign="center center" />
+      <mat-error *ngIf="f.confirmPassword.errors?.required">
+        This field is required.
+      </mat-error>
+      <mat-error *ngIf="form.get('confirmPassword').errors && form.get('confirmPassword').errors.ConfirmPassword">
+        Passwords must match!
+      </mat-error>
+    </mat-form-field>
+  <button mat-flat-button color="primary" [disabled]="form.invalid">Register</button>
+</form>

@@ -1,0 +1,12 @@
+<mat-toolbar class="navigation">
+  <button mat-icon-button (click)="toggleSidenav()">
+    <mat-icon class="menu-icon">menu</mat-icon>
+  </button>
+  <div><a routerLink="/" class="logo">iFusion</a></div>
+  <ul fxFlex fxLayout fxLayoutAlign="flex-end" fxLayoutGap="12px">
+    <li><a routerLink="/auth/login">Login</a></li>
+    <li><a routerLink="/auth/register">Sign Up</a></li>
+    <li><a routerLink="/order/my-orders">My Orders</a></li>
+    <li><button mat-flat-button>Logout</button></li>
+  </ul>
+</mat-toolbar>

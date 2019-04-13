@@ -1,0 +1,13 @@
+<section class="welcome">
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <h1>Everything you need</h1>
+    <h3>iFusion Store</h3>
+  </div>
+  <form [formGroup]="form" fxLayout="column" fxLayoutAlign="center center">
+    <mat-form-field>
+      <input matInput formControlName="search" type="text" placeholder="Searching for ..." fxLayout="column" fxLayoutAlign="center center"/>
+    </mat-form-field>
+    <button mat-flat-button color="primary" [disabled]="form.invalid" type="submit">Search</button>
+  </form>
+  
+</section>

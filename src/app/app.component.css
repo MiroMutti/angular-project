@@ -1,0 +1,21 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: #FF5252;
+}
+
+ul {
+    list-style: none;
+}
+
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+    height: 100%;
+}
+
+mat-sidenav {
+    width: 250px;
+    overflow: hidden;
+}
