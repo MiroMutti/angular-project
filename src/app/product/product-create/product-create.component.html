@@ -1,3 +1,78 @@
-<p>
-  product-create works!
-</p>
+<form [formGroup]="form" (submit)="createProduct()" fxLayout="column" fx fxLayoutAlign="center center" fxLayoutGap="15px">
+  <h2>Add new product</h2>
+  <mat-form-field>
+    <input matInput formControlName="name" type="text" placeholder="enter the product name" fxLayout="column"
+      fxLayoutAlign="center center" />
+    <mat-error *ngIf="f.name.errors?.required">
+      This field is required.
+    </mat-error>
+    <mat-error *ngIf="f.name.errors?.minlength">
+      Product name must be at least {{f.name.errors.minlength.requiredLength}} chars!
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="year" type="number" placeholder="enter released year" fxLayout="column"
+      fxLayoutAlign="center center" />
+    <mat-error *ngIf="f.year.errors?.required">
+      This field is required.
+    </mat-error>
+    <mat-error *ngIf="f.year.errors?.min">
+      Earliest released year must be {{f.year.errors.min.min}} year!
+    </mat-error>
+    <mat-error *ngIf="f.year.errors?.max">
+      The current year is {{f.year.errors.max.max}}!
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="price" type="number" placeholder="enter product price" fxLayout="column"
+      fxLayoutAlign="center center" />
+    <mat-error *ngIf="f.price.errors?.required">
+      This field is required.
+    </mat-error>
+    <mat-error *ngIf="f.price.errors?.min">
+      The minimum price should be {{f.price.errors.min.min}} $!
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <select matNativeControl formControlName="storage" type="select" placeholder="choose the product storage"
+      fxLayout="column" fxLayoutAlign="center center">
+      <option value="{{storage}}" *ngFor="let storage of storages">{{storage}}</option>
+    </select>
+  </mat-form-field>
+  <mat-form-field>
+    <select matNativeControl formControlName="color" type="select" placeholder="choose the product color"
+      fxLayout="column" fxLayoutAlign="center center">
+      <option value="{{color}}" *ngFor="let color of colors">{{color}}</option>
+    </select>
+    <mat-error *ngIf="f.color.errors?.required">
+      Choose the product color.
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <select matNativeControl formControlName="category" type="select" placeholder="choose the product category"
+      fxLayout="column" fxLayoutAlign="center center">
+      <option value="{{category}}" *ngFor="let category of categories">{{category}}</option>
+    </select>
+    <mat-error *ngIf="f.category.errors?.required">
+      Choose the product category.
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="imageUrl" type="text" placeholder="Image URL here" fxLayout="column"
+      fxLayoutAlign="center center" />
+    <mat-error *ngIf="f.imageUrl.errors?.required">
+      The image URL is required.
+    </mat-error>
+    <mat-error *ngIf="f.imageUrl.errors?.pattern">
+      Must be in formats: png, jpg, gif!
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="descriptionUrl" type="text" placeholder="Description URL here" fxLayout="column"
+      fxLayoutAlign="center center" />
+    <mat-error *ngIf="f.descriptionUrl.errors?.pattern">
+      Invalid URL format!
+    </mat-error>
+  </mat-form-field>
+  <button mat-flat-button color="primary" [disabled]="form.invalid">Create product</button>
+</form>

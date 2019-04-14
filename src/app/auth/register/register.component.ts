@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConfirmPasswordValidator } from './../../core/validators/confirm-password.validator';
 import { AuthService } from './../../core/services/auth.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-register',
@@ -16,6 +17,7 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
+    private snackbar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -33,9 +35,16 @@ export class RegisterComponent implements OnInit {
     this.authService
       .signUp(this.form.value)
       .subscribe((data) => {
-        console.log(data);
+        this.snackbar.open('Success! You are registered user.', 'Undo', {
+          duration: 4500
+        })
         this.router.navigate([ '/auth/login' ]);
-      })
+      }, (error) => {
+        console.log(error)
+        this.snackbar.open(`Error! ${error['error']['description']}!`, 'Undo', {
+          duration: 4500
+        })
+    })
   }
 
   get f(){ return this.form.controls }

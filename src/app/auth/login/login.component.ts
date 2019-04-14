@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from './../../core/services/auth.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -10,11 +11,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup
-  
+
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
+    private snackbar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -28,9 +30,15 @@ export class LoginComponent implements OnInit {
     this.authService
       .signIn(this.form.value)
       .subscribe((data) => {
-        //this.toastr.success('Logged in successfully', 'Success!');
         this.authService.saveUserInfo(data);
-        this.router.navigate(['/']);
+        this.snackbar.open('Successfully logged in!', 'Undo', {
+          duration: 4500
+        })
+        this.router.navigate(['/'])
+      }, (error) => {
+          this.snackbar.open('Error! Incorrect username or password!', 'Undo', {
+            duration: 4500
+          })
       })
   }
 

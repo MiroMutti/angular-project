@@ -1,0 +1,20 @@
+.card {
+    width: 12rem;
+    margin: 0.7rem 1.2rem;
+    
+    border-radius: 0.5rem;
+    .card-content{
+        text-align: center;
+    }
+    .card-actions{
+        text-align: center;
+    }
+    img{
+        width: 100%;
+        box-shadow: 0px 0px 19px -5px rgba(0,0,0,0.65);
+    }
+    h5{
+        font-size: 1.4rem;
+        margin: 1rem;
+    }
+}

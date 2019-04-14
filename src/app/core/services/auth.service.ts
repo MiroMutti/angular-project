@@ -48,6 +48,10 @@ export class AuthService {
     return this.token !== null;
   }
 
+  isAnonimous(){
+    return this.token === null;
+  }
+
   saveUserInfo(res: Object) {
     localStorage.setItem('username', res['username']);
     localStorage.setItem('token', res['_kmd']['authtoken']);

@@ -1,3 +1,4 @@
-<p>
-  product-list works!
-</p>
+<div class="products-list">
+  <app-product-card *ngFor="let product of (allProducts$ | async)" [product]="product">
+  </app-product-card>
+</div>

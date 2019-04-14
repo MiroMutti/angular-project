@@ -6,6 +6,9 @@ import { ProductCreateComponent } from './product-create/product-create.componen
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { MaterialModule } from './../material.module';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -16,9 +19,16 @@ import { MaterialModule } from './../material.module';
     ProductCardComponent
   ],
   imports: [
-
-    CommonModule,
-    MaterialModule
+  CommonModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    FlexLayoutModule,
+    RouterModule.forChild([
+      { path: '', pathMatch: 'full', redirectTo: 'home' },
+      { path: 'create', component: ProductCreateComponent },
+      { path: 'edit', component: ProductEditComponent },
+      { path: 'details/:id', component: ProductDetailsComponent }
+    ])
   ],
   exports: [
     ProductListComponent,
