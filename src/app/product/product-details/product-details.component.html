@@ -1,3 +1,14 @@
-<p>
-  product-details works!
-</p>
+<div class="details-wrapper" *ngIf="(product$ | async) as product">
+  <div class="left-side">
+      <img mat-card-image src="{{product.imageUrl}}" alt="Photo of iProduct">
+  </div>
+  <div class="right-side">
+    <h3>Model: {{product.name}}</h3>
+    <p>Released year: {{product.year}}</p>
+    <p>Color: {{product.color}}</p>
+    <p>Storage: {{product.storage}} GB</p>
+    <p *ngIf="product.descriptionUrl"><a href="{{product.descriptionUrl}}">Official website</a></p>
+    <p>Price: {{product.price}} $</p>
+    <button mat-flat-button color="primary" (click)="productOrder(product)">Buy</button>
+  </div>
+</div>

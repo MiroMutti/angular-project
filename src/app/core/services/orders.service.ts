@@ -1,30 +1,31 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { APP_KEY, APP_SECRET } from '../../kinvey.tokens';
-import { Product } from './../../shared/models/product.model';
+import { Order } from './../../shared/models/order.model';
 
 @Injectable({
     providedIn: 'root'
 })
-export class ProductService {
+export class OrderService {
     private readonly BASE_URL = `https://baas.kinvey.com/appdata/${APP_KEY}`;
-    private readonly ALL_PRODUCTS = `${this.BASE_URL}/products?query={}&sort={"_kmd.ect": -1}`;
-    private readonly CREATE_PRODUCT = `${this.BASE_URL}/products`;
+    private readonly ALL_ORDERS = `${this.BASE_URL}/orders?query={}&sort={"_kmd.ect": -1}`;
+    private readonly CREATE_ORDER = `${this.BASE_URL}/orders`;
     private readonly API_KEY = 'a2lkX1N5blUwdHlxRTozMzBhYzM2NjY3MTY0NTMwYTJmYjIwMGQzMjExNjg3OA=='
+    
     constructor(
         private http: HttpClient
     ) { }
 
     getAll() {
-        return this.http.get<Product[]>(this.ALL_PRODUCTS, {
+        return this.http.get<Order[]>(this.ALL_ORDERS, {
             headers: new HttpHeaders({
-                'Authorization': `Basic ${this.API_KEY}`
+                'Authorization': `Kinvey ${localStorage.getItem('token')}`
             })
         });
     }
 
-    createProduct(body: Object) {
-        return this.http.post(this.CREATE_PRODUCT, body, {
+    createOrder(body: Object) {
+        return this.http.post(this.CREATE_ORDER, body, {
             headers: new HttpHeaders({
                 'Authorization': `Kinvey ${localStorage.getItem('token')}`
             })
@@ -32,7 +33,7 @@ export class ProductService {
     }
 
     getById(id: string) {
-        return this.http.get<Product>(this.CREATE_PRODUCT + `/${id}`, {
+        return this.http.get<Order>(this.CREATE_ORDER + `/${id}`, {
             headers: new HttpHeaders({
                 'Authorization': `Kinvey ${localStorage.getItem('token')}`
             })
@@ -40,23 +41,15 @@ export class ProductService {
     }
 
     getDetails(id: string) {
-        return this.http.get<Product>(this.CREATE_PRODUCT + `/${id}`, {
+        return this.http.get<Order>(this.CREATE_ORDER + `/${id}`, {
             headers: new HttpHeaders({
                 'Authorization': `Basic ${this.API_KEY}`
             })
         });
     }
 
-    editProduct(body: Object, id: string) {
-        return this.http.put(this.CREATE_PRODUCT + `/${id}`, body, {
-            headers: new HttpHeaders({
-                'Authorization': `Kinvey ${localStorage.getItem('token')}`
-            })
-        });
-    }
-
-    deleteProduct(id: string) {
-        return this.http.delete(this.CREATE_PRODUCT + `/${id}`, {
+    editORDER(body: Object, id: string) {
+        return this.http.put(this.CREATE_ORDER + `/${id}`, body, {
             headers: new HttpHeaders({
                 'Authorization': `Kinvey ${localStorage.getItem('token')}`
             })

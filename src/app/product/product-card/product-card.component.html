@@ -1,11 +1,10 @@
 <div class="card">
   <div class="card-content">
     <img mat-card-image src="{{product.imageUrl}}" alt="Photo of iProduct">
-    <h4 class="card-name">{{product.name}} {{product.storage}} GB</h4>
+    <h4 class="card-name">{{product.name}} - {{product.storage}} GB</h4>
     <h5 class="card-price">{{product.price}} $</h5>
   </div>
   <div class="card-actions">
-    <button mat-flat-button>Details</button>
-    <button mat-flat-button color="primary">Buy</button>
+    <a mat-flat-button [routerLink]="['/products/details', product._id]">Details</a>
   </div>
 </div>

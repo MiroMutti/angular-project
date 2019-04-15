@@ -11,7 +11,7 @@ import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductModule } from './product/product.module';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [

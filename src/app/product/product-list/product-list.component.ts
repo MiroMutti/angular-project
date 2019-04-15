@@ -19,5 +19,4 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
     this.allProducts$ = this.productService.getAll()
   }
-
 }

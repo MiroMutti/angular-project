@@ -7,7 +7,7 @@
     <li *ngIf="isAnonimous"><a routerLink="/auth/login">Login</a></li>
     <li *ngIf="isAnonimous"><a routerLink="/auth/register">Sign Up</a>
     </li>
-    <li *ngIf="isLoggedIn"><a routerLink="/order/my-orders">My Orders</a></li>
+    <li *ngIf="isLoggedIn"><a routerLink="/orders/my-orders">My Orders</a></li>
     <li *ngIf="isLoggedIn"><button mat-flat-button (click)="logout()">Logout</button></li>
   </ul>
 </mat-toolbar>

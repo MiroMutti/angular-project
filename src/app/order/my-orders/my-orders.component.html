@@ -1,3 +1,4 @@
-<p>
-  my-orders works!
-</p>
+<div class="products-list">
+    <app-product-card *ngFor="let order of (allOrders$ | async)" [product]="product">
+    </app-product-card>
+  </div>

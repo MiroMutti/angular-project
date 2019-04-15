@@ -1,0 +1,19 @@
+.details-wrapper{
+    width: 75vw;
+    margin: 1.8rem auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.left-side {
+    width: 50%
+}
+
+.right-side {
+    padding: 2rem 3rem;
+}
+
+img{
+    width: 100%;
+}
