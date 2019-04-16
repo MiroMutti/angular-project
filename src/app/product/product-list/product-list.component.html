@@ -1,4 +1,4 @@
 <div class="products-list">
-  <app-product-card *ngFor="let product of (allProducts$ | async)" [product]="product">
+  <app-product-card *ngFor="let product of (allProducts$ | async)" [product]="product" (deleteEvent)="productsChange($event)">
   </app-product-card>
 </div>

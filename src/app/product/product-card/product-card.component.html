@@ -5,6 +5,7 @@
     <h5 class="card-price">{{product.price}} $</h5>
   </div>
   <div class="card-actions">
-    <a mat-flat-button [routerLink]="['/products/details', product._id]">Details</a>
+    <a mat-flat-button color="primary" [routerLink]="['/products/details', product._id]">Details</a>
+    <button *ngIf="isAdmin" mat-flat-button color="warn" (click)="deleteProduct(product['_id'])">Delete</button>
   </div>
 </div>

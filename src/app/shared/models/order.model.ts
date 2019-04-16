@@ -1,4 +1,6 @@
 export interface Order {
-    product: Object
-    status: 'pending'
+    status: string,
+    product: string,
+    price: number,
+    imageUrl: string
 }

@@ -52,9 +52,14 @@ export class AuthService {
     return this.token === null;
   }
 
+  isAdmin(){
+    if(localStorage.getItem('roles') === "Admin") return true
+  }
+
   saveUserInfo(res: Object) {
     localStorage.setItem('username', res['username']);
     localStorage.setItem('token', res['_kmd']['authtoken']);
     localStorage.setItem('userId', res['_id']);
+    localStorage.setItem('roles', res['roles']);
   }
 }

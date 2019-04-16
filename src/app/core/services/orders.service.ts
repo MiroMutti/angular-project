@@ -11,7 +11,7 @@ export class OrderService {
     private readonly ALL_ORDERS = `${this.BASE_URL}/orders?query={}&sort={"_kmd.ect": -1}`;
     private readonly CREATE_ORDER = `${this.BASE_URL}/orders`;
     private readonly API_KEY = 'a2lkX1N5blUwdHlxRTozMzBhYzM2NjY3MTY0NTMwYTJmYjIwMGQzMjExNjg3OA=='
-    
+
     constructor(
         private http: HttpClient
     ) { }
@@ -48,8 +48,16 @@ export class OrderService {
         });
     }
 
-    editORDER(body: Object, id: string) {
+    editOrder(body: Object, id: string) {
         return this.http.put(this.CREATE_ORDER + `/${id}`, body, {
+            headers: new HttpHeaders({
+                'Authorization': `Kinvey ${localStorage.getItem('token')}`
+            })
+        });
+    }
+
+    getUserOrder(userId: string){
+        return this.http.get<Order[]>(this.CREATE_ORDER + `?query={"_acl.creator":"${userId}"}&sort={"_kmd.ect": -1}`, {
             headers: new HttpHeaders({
                 'Authorization': `Kinvey ${localStorage.getItem('token')}`
             })

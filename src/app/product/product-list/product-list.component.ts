@@ -8,7 +8,7 @@ import { Product } from './../../shared/models/product.model';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit{
 
   allProducts$: Observable<Product[]>
 
@@ -17,6 +17,10 @@ export class ProductListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.allProducts$ = this.productService.getAll()
+  }
+
+  productsChange($event){
     this.allProducts$ = this.productService.getAll()
   }
 }

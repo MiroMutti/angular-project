@@ -9,6 +9,7 @@ import { MaterialModule } from './../material.module';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AdminGuard } from './../core/guards/admin.guard';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ProductCardComponent
   ],
   imports: [
-  CommonModule,
+    CommonModule,
     MaterialModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     RouterModule.forChild([
       { path: '', pathMatch: 'full', redirectTo: 'home' },
-      { path: 'create', component: ProductCreateComponent },
-      { path: 'edit', component: ProductEditComponent },
+      { path: 'create', component: ProductCreateComponent, canActivate: [AdminGuard] },
       { path: 'details/:id', component: ProductDetailsComponent }
     ])
   ],

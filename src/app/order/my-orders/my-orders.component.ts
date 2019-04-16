@@ -10,16 +10,15 @@ import { OrderService } from './../../core/services/orders.service';
 })
 export class MyOrdersComponent implements OnInit {
 
-  myOrders: Order
-
+  myOrders$: Observable<Order[]>
+  userId: string
   constructor(
     private orderService: OrderService
   ) { }
 
   ngOnInit() {
-    this.orderService.getAll().subscribe((data) => {
-
-    })
+    this.userId = localStorage.getItem('userId')
+    this.myOrders$ = this.orderService.getUserOrder(this.userId)
   }
 
 }

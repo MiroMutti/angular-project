@@ -32,7 +32,9 @@ export class ProductDetailsComponent implements OnInit {
   productOrder(product) {
     this.order = {
       status: 'pending',
-      product: product
+      product: product.name,
+      price: product.price,
+      imageUrl: product.imageUrl
     }
 
     this.orderService.createOrder(this.order)
