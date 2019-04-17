@@ -14,7 +14,7 @@ export class ProductCreateComponent implements OnInit {
  form: FormGroup
  storages: Array<number> = [16, 32, 64, 128, 256, 512]
  colors: Array<string> = ['Space Gray', 'Silver', 'Gold', 'Rose Gold', 'Red', 'Jet Black', 'White', 'Black', 'Yellow', 'Coral', 'Blue', 'Green', 'Pink']
- categories: Array<string> = ['iphone', 'ipad', 'macbook', 'accessories']
+ categories: Array<string> = ['iPhone', 'iPad', 'Macbook', 'Accessories']
   constructor(
     private fb: FormBuilder,
     private productService: ProductService,

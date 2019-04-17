@@ -9,3 +9,7 @@
 @media screen and (max-width: 1065px) {
 	.products-list { width: 90vw; }
 }
+
+h2 {
+    text-align: center;
+}

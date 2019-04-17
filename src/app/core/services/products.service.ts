@@ -11,9 +11,16 @@ export class ProductService {
     private readonly ALL_PRODUCTS = `${this.BASE_URL}/products?query={}&sort={"_kmd.ect": -1}`;
     private readonly CREATE_PRODUCT = `${this.BASE_URL}/products`;
     private readonly API_KEY = 'a2lkX1N5blUwdHlxRTozMzBhYzM2NjY3MTY0NTMwYTJmYjIwMGQzMjExNjg3OA=='
+
+     categories = ['iPhone', 'iPad', 'Macbook', 'Accessories']
+
     constructor(
         private http: HttpClient
     ) { }
+
+    allCategories() {
+        return this.categories
+    }
 
     getAll() {
         return this.http.get<Product[]>(this.ALL_PRODUCTS, {
@@ -59,6 +66,14 @@ export class ProductService {
         return this.http.delete(this.CREATE_PRODUCT + `/${id}`, {
             headers: new HttpHeaders({
                 'Authorization': `Kinvey ${localStorage.getItem('token')}`
+            })
+        });
+    }
+
+    getProductsCategory(category: string){
+        return this.http.get<Product[]>(this.CREATE_PRODUCT + `?query={"category":"${category}"}&sort={"_kmd.ect": -1}`, {
+            headers: new HttpHeaders({
+                'Authorization': `Basic ${this.API_KEY}`
             })
         });
     }

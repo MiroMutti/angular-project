@@ -1,13 +1,15 @@
 <mat-toolbar class="navigation">
-  <button mat-icon-button (click)="toggleSidenav()">
-    <mat-icon class="menu-icon">menu</mat-icon>
-  </button>
   <div><a routerLink="/" class="logo">iFusion</a></div>
-  <ul fxFlex fxLayout fxLayoutAlign="flex-end" fxLayoutGap="12px">
+  <div class="vertical-line"></div>
+  <ul class="categories" fxFlex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+    <li class="category-item" *ngFor="let category of categories"><a [routerLink]="['/products/', category]" routerLinkActive="router-link-active" >{{category}}</a></li>
+  </ul>
+  <ul fxFlex fxLayout="row" fxLayoutAlign="flex-end" fxLayoutGap="15px" class="user-section">
+    <li *ngIf="isAdmin"><a routerLink="/products/create">Add Product</a></li>
+    <li *ngIf="isAdmin"><a routerLink="/orders/all-orders">All Orders</a></li>
+    <li *ngIf="isLoggedIn"><a routerLink="/orders/my-orders"><mat-icon>shopping_cart</mat-icon></a></li>
+    <li *ngIf="isLoggedIn"><a class="logout" routerLink="/auth/login" (click)="logout()"><mat-icon>cancel_presentation</mat-icon></a></li>
     <li *ngIf="isAnonimous"><a routerLink="/auth/login">Login</a></li>
-    <li *ngIf="isAnonimous"><a routerLink="/auth/register">Sign Up</a>
-    </li>
-    <li *ngIf="isLoggedIn"><a routerLink="/orders/my-orders">My Orders</a></li>
-    <li *ngIf="isLoggedIn"><button mat-flat-button (click)="logout()">Logout</button></li>
+    <li *ngIf="isAnonimous"><a routerLink="/auth/register">Register</a></li>
   </ul>
 </mat-toolbar>

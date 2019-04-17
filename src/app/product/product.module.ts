@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AdminGuard } from './../core/guards/admin.guard';
+import { ProductCategoryComponent } from './product-category/product-category.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AdminGuard } from './../core/guards/admin.guard';
     ProductDetailsComponent,
     ProductCreateComponent,
     ProductEditComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductCategoryComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { AdminGuard } from './../core/guards/admin.guard';
     RouterModule.forChild([
       { path: '', pathMatch: 'full', redirectTo: 'home' },
       { path: 'create', component: ProductCreateComponent, canActivate: [AdminGuard] },
-      { path: 'details/:id', component: ProductDetailsComponent }
+      { path: 'details/:id', component: ProductDetailsComponent },
+      { path: ':category', component: ProductCategoryComponent }
     ])
   ],
   exports: [

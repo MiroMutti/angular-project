@@ -1,10 +1,8 @@
 a {
     text-decoration: none;
     color: white;
-}
-
-a:hover {
-    color: #FF5252;
+    background: none;
+    border: none;
 }
 
 ul {
@@ -20,4 +18,60 @@ ul {
 }
 .logo{
     font-size: 2.3rem;
+    margin: auto 1rem;
 }
+
+.logo:hover{
+    color: #FF5252;
+}
+
+.categories {
+    display: flex;
+}
+
+.category-item{
+    text-decoration: none;
+}
+
+.category-item>li{
+    list-style: none;
+}
+.category-item a:after{
+    display: none;
+    width: 2rem;
+    height: 0.15rem;
+    content: '';
+    background: #FF5252;
+    margin: 0.2rem auto;
+}
+
+.category-item a:hover::after {
+    display: block;
+}
+
+.user-section{
+    margin-right: 2rem;
+}
+
+.user-section a:hover{
+    color: #FF5252;
+}
+
+.logout{
+    color: rgb(144, 191, 252);
+}
+
+mat-icon{
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 0;
+}
+
+.vertical-line{
+    width: 3px;
+    height: 35%;
+    background: rgb(238, 238, 238);
+    z-index: 1000;
+    margin-left: 2rem;
+}
+

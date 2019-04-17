@@ -1,3 +1,7 @@
 mat-form-field{
     width: 30vw;
 }
+
+@media screen and (max-width: 960px) {
+	mat-form-field { width: 80vw; }
+}
