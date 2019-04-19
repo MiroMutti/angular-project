@@ -1,5 +1,7 @@
-<h2>{{category}}</h2>
-<div class="products-list">
-    <app-product-card *ngFor="let product of (products$ | async)" [product]="product">
-    </app-product-card>
+<div class="wrapper">
+    <h2 class="header">{{category}}</h2>
+    <div class="products-list">
+        <app-product-card *ngFor="let product of (products$ | async)" [product]="product">
+        </app-product-card>
+    </div>
 </div>

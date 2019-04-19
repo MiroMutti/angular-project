@@ -1,13 +1,9 @@
 .products-list{
-    width: 68vw;
     margin: 1.5rem auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
-
-@media screen and (max-width: 1065px) {
-	.products-list { width: 90vw; }
+    justify-content: center;
 }
 
 h2 {

@@ -1,14 +1,14 @@
-<section class="welcome">
+<section class="welcome wrapper">
   <div fxLayout="column" fxLayoutAlign="center center">
-    <h1>Everything you need</h1>
-    <h3>iFusion Store</h3>
+    <h1>iFusion Store</h1>
+    <h3>Everything you need</h3>
   </div>
-  <form [formGroup]="form" fxLayout="column" fxLayoutAlign="center center">
+  <form [formGroup]="form" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="center center">
     <mat-form-field>
-      <input matInput formControlName="search" type="text" placeholder="Searching for ..." fxLayout="column" fxLayoutAlign="center center"/>
+      <input matInput formControlName="search" type="text" placeholder="Searching for ..." fxLayout="row" fxLayoutAlign="center center"/>
     </mat-form-field>
     <button mat-flat-button color="primary" [disabled]="form.invalid" type="submit">Search</button>
   </form>
-  <h2>All products</h2>
+  <h2 class="header">All products</h2>
   <app-product-list></app-product-list>
 </section>

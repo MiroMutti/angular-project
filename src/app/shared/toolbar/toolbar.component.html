@@ -1,15 +1,26 @@
-<mat-toolbar class="navigation">
-  <div><a routerLink="/" class="logo">iFusion</a></div>
-  <div class="vertical-line"></div>
-  <ul class="categories" fxFlex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
-    <li class="category-item" *ngFor="let category of categories"><a [routerLink]="['/products/', category]" routerLinkActive="router-link-active" >{{category}}</a></li>
-  </ul>
-  <ul fxFlex fxLayout="row" fxLayoutAlign="flex-end" fxLayoutGap="15px" class="user-section">
-    <li *ngIf="isAdmin"><a routerLink="/products/create">Add Product</a></li>
-    <li *ngIf="isAdmin"><a routerLink="/orders/all-orders">All Orders</a></li>
-    <li *ngIf="isLoggedIn"><a routerLink="/orders/my-orders"><mat-icon>shopping_cart</mat-icon></a></li>
-    <li *ngIf="isLoggedIn"><a class="logout" routerLink="/auth/login" (click)="logout()"><mat-icon>cancel_presentation</mat-icon></a></li>
-    <li *ngIf="isAnonimous"><a routerLink="/auth/login">Login</a></li>
-    <li *ngIf="isAnonimous"><a routerLink="/auth/register">Register</a></li>
-  </ul>
-</mat-toolbar>
+<input type="checkbox" id="nav-main-toggle" name="nav-main-toggle">
+
+<header class="site-header">
+  <label id="nav-toggle" for="nav-main-toggle" class="fas"><span>Menu</span></label>
+  <div class="site-branding">
+    <a routerLink="/" class="site-title">iFusion</a>
+  </div>
+  <nav class="navigation main">
+    <ul class="categories">
+      <li class="category-item" *ngFor="let category of categories"><a [routerLink]="['/products/', category]"
+          routerLinkActive="router-link-active">{{category}}</a></li>
+    </ul>
+    <ul class="user-section">
+      <li *ngIf="isAdmin"><a routerLink="/products/create">Add Product</a></li>
+      <li *ngIf="isAdmin"><a routerLink="/orders/all-orders">All Orders</a></li>
+      <li *ngIf="isLoggedIn"><a routerLink="/orders/my-orders">
+        <i class="fas fa-shopping-cart"></i>
+        </a></li>
+      <li *ngIf="isLoggedIn"><a class="logout" routerLink="/auth/login" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+        </a></li>
+      <li *ngIf="isAnonimous"><a routerLink="/auth/login">Login</a></li>
+      <li *ngIf="isAnonimous"><a routerLink="/auth/register">Register</a></li>
+    </ul>
+  </nav>
+</header>

@@ -11,6 +11,9 @@ import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductModule } from './product/product.module';
 import { HttpClientModule } from '@angular/common/http';
+import { OrderService } from './core/services/orders.service';
+import { AuthService } from './core/services/auth.service';
+import { ProductService } from './core/services/products.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,6 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
   ],
   imports: [
-
   BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -29,7 +31,11 @@ import { HttpClientModule } from '@angular/common/http';
     ProductModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    ProductService,
+    OrderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

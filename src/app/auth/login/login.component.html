@@ -1,22 +1,24 @@
-<form [formGroup]="form" (submit)="login()" fxLayout="column" fx fxLayoutAlign="center center" fxLayoutGap="15px">
-  <h2>Login form</h2>
-  <mat-form-field >
-    <input matInput formControlName="username" type="text" placeholder="enter your username" fxLayout="column" fxLayoutAlign="center center"/>
-    <mat-error *ngIf="f.username.errors?.required">
-      This field is required.
-    </mat-error>
-    <mat-error *ngIf="f.username.errors?.minlength">
-        Username must be at least {{f.username.errors.minlength.requiredLength}} chars!
-      </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput formControlName="password" type="password" placeholder="enter your password" fxLayout="column" fxLayoutAlign="center center"/>
-    <mat-error *ngIf="f.password.errors?.required">
+<div class="wrapper">
+  <form [formGroup]="form" (submit)="login()" fxLayout="column" fx fxLayoutAlign="center center" fxLayoutGap="15px">
+    <h2 class="header">Login form</h2>
+    <mat-form-field >
+      <input matInput formControlName="username" type="text" placeholder="enter your username" fxLayout="column" fxLayoutAlign="center center"/>
+      <mat-error *ngIf="f.username.errors?.required">
         This field is required.
       </mat-error>
-      <mat-error *ngIf="f.password.errors?.minlength">
-          Password must be at least {{f.password.errors.minlength.requiredLength}} chars!
+      <mat-error *ngIf="f.username.errors?.minlength">
+          Username must be at least {{f.username.errors.minlength.requiredLength}} chars!
         </mat-error>
-  </mat-form-field>
-  <button mat-flat-button color="primary" [disabled]="form.invalid">Login</button>
-</form>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="password" type="password" placeholder="enter your password" fxLayout="column" fxLayoutAlign="center center"/>
+      <mat-error *ngIf="f.password.errors?.required">
+          This field is required.
+        </mat-error>
+        <mat-error *ngIf="f.password.errors?.minlength">
+            Password must be at least {{f.password.errors.minlength.requiredLength}} chars!
+          </mat-error>
+    </mat-form-field>
+    <button mat-flat-button color="primary" [disabled]="form.invalid">Login</button>
+  </form>
+</div>

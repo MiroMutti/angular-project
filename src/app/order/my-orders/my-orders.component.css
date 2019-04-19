@@ -1,7 +1,6 @@
-.orders-list {
-        width: 65vw;
-        margin: 1.5rem auto;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
+.orders-wrapper {
+        margin: 1.5rem;
+        padding: auto;
+        justify-content: center;
+        justify-items: center;
 }

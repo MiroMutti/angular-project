@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
@@ -7,7 +7,7 @@ import { ProductService } from './../../core/services/products.service';
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.css']
+  styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
 

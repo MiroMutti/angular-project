@@ -1,9 +1,12 @@
 <div class="card">
-    <div class="card-content">
-      <img mat-card-image src="{{order.imageUrl}}" alt="Photo of iProduct">
-      <div class="card-info">
-          <h4 class="card-name">Product: {{order.product}}, price {{order.price}} $</h4>
-          <h5 class="card-status">Status: <span class="{{order.status}}">{{order.status}}</span></h5>
-      </div>
+  <div class="card-content">
+    <div class="img-container"><img src="{{order.imageUrl}}" alt="Photo of iProduct"></div>
+    <div class="card-info">
+      <h4 class="card-name">Product: {{order.product}}, price {{order.price}} $</h4>
+      <h5 class="card-status">Status: <span class="{{order.status}}">{{order.status}}</span></h5>
     </div>
   </div>
+  <div class="action" *ngIf="isAdmin && order.status == 'pending'">
+    <button mat-flat-button color="primary" (click)="confirmOrder(order['_id'])">confirm</button>
+  </div>
+</div>

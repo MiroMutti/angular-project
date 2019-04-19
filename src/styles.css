@@ -9,6 +9,7 @@ html, body {
 body{
     margin: 0;
     padding: 0;
+    min-height: 100%;
 }
 
 *, *:before, *:after {
@@ -20,3 +21,21 @@ body{
     margin: 0;
 }
 
+.wrapper {
+    padding: 2rem 0;
+    margin: 1.5rem auto;
+    width: 75vw;
+}
+
+.header::after{
+    display: block;
+    width: 5rem;
+    height: 0.15rem;
+    content: '';
+    background: rgb(48, 48, 48);
+    margin: 1.2rem auto;
+}
+
+@media screen and (max-width: 1065px) {
+	.wrapper{ width: 85vw; }
+}
