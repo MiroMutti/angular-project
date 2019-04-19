@@ -105,6 +105,7 @@
 @media screen and (min-width: 800px) {
 
     #nav-toggle {display: none;}
+    #nav-main-toggle{ display: none; }
 	.site-header { 
 		display: flex;
 		flex-direction: row;
@@ -121,6 +122,7 @@
 	}
     .navigation {
 		display: flex;
+		flex-direction: row;
 		flex-grow: 1;
 		justify-content: space-between;
 		padding: 0;

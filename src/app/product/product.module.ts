@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AdminGuard } from './../core/guards/admin.guard';
 import { ProductCategoryComponent } from './product-category/product-category.component';
+import { ProductSearchComponent } from './product-search/product-search.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProductCategoryComponent } from './product-category/product-category.co
     ProductDetailsComponent,
     ProductCreateComponent,
     ProductCardComponent,
-    ProductCategoryComponent
+    ProductCategoryComponent,
+    ProductSearchComponent
   ],
   imports: [
     CommonModule,
@@ -28,6 +30,7 @@ import { ProductCategoryComponent } from './product-category/product-category.co
       { path: '', pathMatch: 'full', redirectTo: 'home' },
       { path: 'create', component: ProductCreateComponent, canActivate: [AdminGuard] },
       { path: 'details/:id', component: ProductDetailsComponent },
+      { path: 'search', component: ProductSearchComponent },
       { path: ':category', component: ProductCategoryComponent }
     ])
   ],

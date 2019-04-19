@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AnonimousGuard } from './../core/guards/anonimous.guard';
 
 @NgModule({
   declarations: [
@@ -13,14 +14,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     RegisterComponent
   ],
   imports: [
-  CommonModule,
+  
+CommonModule,
     ReactiveFormsModule,
     MaterialModule,
     FlexLayoutModule,
     RouterModule.forChild([
       { path: '', pathMatch: 'full', redirectTo: 'home' },
-      { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent }
+      { path: 'login', component: LoginComponent, canActivate: [AnonimousGuard] },
+      { path: 'register', component: RegisterComponent, canActivate: [AnonimousGuard] }
     ])
   ]
 })

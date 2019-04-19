@@ -1,9 +1,9 @@
 <section class="welcome wrapper">
   <div fxLayout="column" fxLayoutAlign="center center">
-    <h1>iFusion Store</h1>
+    <h1 class="header">iFusion Store</h1>
     <h3>Everything you need</h3>
   </div>
-  <form [formGroup]="form" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="center center">
+  <form [formGroup]="form" (submit)="search()" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="center center">
     <mat-form-field>
       <input matInput formControlName="search" type="text" placeholder="Searching for ..." fxLayout="row" fxLayoutAlign="center center"/>
     </mat-form-field>

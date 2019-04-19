@@ -3,10 +3,10 @@
     <div class="img-container"><img src="{{order.imageUrl}}" alt="Photo of iProduct"></div>
     <div class="card-info">
       <h4 class="card-name">Product: {{order.product}}, price {{order.price}} $</h4>
-      <h5 class="card-status">Status: <span class="{{order.status}}">{{order.status}}</span></h5>
+      <h5 class="card-status">Status: <span class="{{order.status}}">{{order.status}}</span> <div class="action" *ngIf="isAdmin && order.status == 'pending'">
+          <button mat-flat-button color="primary" (click)="confirmOrder(order['_id'])">confirm</button>
+        </div></h5>
     </div>
   </div>
-  <div class="action" *ngIf="isAdmin && order.status == 'pending'">
-    <button mat-flat-button color="primary" (click)="confirmOrder(order['_id'])">confirm</button>
-  </div>
+  
 </div>

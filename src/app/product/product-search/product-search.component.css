@@ -1,4 +1,7 @@
-.products-list{
+.header {
+    text-align: center;
+}
+.product-list{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

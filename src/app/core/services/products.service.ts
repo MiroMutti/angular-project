@@ -77,4 +77,12 @@ export class ProductService {
             })
         });
     }
+
+    getSearchProduct(query: string){
+        return this.http.get<Product[]>(this.CREATE_PRODUCT + `?query={"name":"${query}"}&sort={"_kmd.ect": -1}`, {
+            headers: new HttpHeaders({
+                'Authorization': `Basic ${this.API_KEY}`
+            })
+        });
+    }
 }
