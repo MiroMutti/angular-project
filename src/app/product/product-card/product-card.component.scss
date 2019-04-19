@@ -1,6 +1,11 @@
 .card {
     width: 15rem;
     margin: 2rem 1.2rem;
+    transition: transform 0.2s ease-in;
+
+        &:hover {
+            transform: scale(1.1);
+        }
     
     border-radius: 0.5rem;
     .card-content{

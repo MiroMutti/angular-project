@@ -1,5 +1,5 @@
 .details-wrapper{
-    width: 75vw;
+    width: 55vw;
     margin: 1.8rem auto;
     display: flex;
     flex-direction: row;
@@ -13,12 +13,22 @@
 
 .right-side {
     padding: 2rem 3rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    height: 100%;
 }
 
 .right-side>p, .right-side>h3 {
     margin: 1.2rem 0;
+
 }
 
 img{
     width: 100%;
+}
+
+@media screen and (max-width: 1065px) {
+	.details-wrapper{ width: 85vw; }
 }
