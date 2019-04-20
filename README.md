@@ -14,14 +14,68 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Project structure
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Auth Module
 
-## Running end-to-end tests
+Login Component
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Register Component
 
-## Further help
+### Product Module
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+List Products Component
+
+Details Product Component
+
+Create Product Component - Admin
+
+Delete Product Component - Admin
+
+### Order Module
+
+My Orders Component - User Authentication
+
+All Orders Component - Admin
+
+## Models
+
+Product interface
+
+Order interface
+
+## Services
+
+Auth Service
+
+Product Service
+
+Order Service
+
+## Guards
+
+Auth Guard
+
+Admin Guard
+
+Anonimous Guard
+
+## Routes 
+
+/
+
+/auth/login
+
+/auth/register
+
+/products/all
+
+/products/search?search={query}
+
+/products/details/:id
+
+/products/create - Admin
+
+/orders/my-orders - Authenticated
+
+/orders/all-orders - Admin
